@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+
+<VBox spacing="10" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.projetofuncionariocrud.Controller.FuncionarioController">
+
+    <padding>
+        <Insets bottom="10" left="10" right="10" top="10" />
+    </padding>
+   <children>
+   
+       <Label style="-fx-font-size: 16px; -fx-font-weight: bold;" text="Cadastro de Funcionário" textAlignment="CENTER" textFill="#f80303">
+         <VBox.margin>
+            <Insets left="300.0" />
+         </VBox.margin>
+      </Label>
+   
+       <GridPane hgap="5" vgap="5">
+      <children>
+              <Label text="Matrícula" textFill="#5205fa" />
+              <TextField fx:id="txtMatricula" GridPane.columnIndex="1" />
+      
+              <Label text="Nome" textFill="#5205fa" GridPane.rowIndex="1" />
+              <TextField fx:id="txtNome" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+      
+              <Label text="CPF" textFill="#5205fa" GridPane.rowIndex="2" />
+              <TextField fx:id="txtCpf" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+      
+              <Label text="Nascimento" textFill="#5205fa" GridPane.rowIndex="3" />
+              <DatePicker fx:id="dpNascimento" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+      
+              <Label text="Cargo" textFill="#5205fa" GridPane.rowIndex="4" />
+              <TextField fx:id="txtCargo" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+      
+              <Label text="Salário" textFill="#5205fa" GridPane.rowIndex="5" />
+              <TextField fx:id="txtSalario" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+      
+              <Label text="Data Contratação" textFill="#5205fa" GridPane.rowIndex="6" />
+              <DatePicker fx:id="dpContratacao" GridPane.columnIndex="1" GridPane.rowIndex="6" />
+      </children>
+         <columnConstraints>
+            <ColumnConstraints />
+            <ColumnConstraints />
+         </columnConstraints>
+         <rowConstraints>
+            <RowConstraints />
+            <RowConstraints />
+            <RowConstraints />
+            <RowConstraints />
+            <RowConstraints />
+            <RowConstraints />
+            <RowConstraints />
+         </rowConstraints>
+       </GridPane>
+   
+       <TitledPane expanded="false" text="Endereço" textFill="#f80303">
+      <content>
+              <GridPane hgap="5" vgap="5">
+                  <padding>
+                      <Insets bottom="10" left="10" right="10" top="10" />
+                  </padding>
+                 <children>
+         
+                     <Label text="Logradouro" />
+                     <TextField fx:id="txtLogradouro" GridPane.columnIndex="1" />
+         
+                     <Label text="Número" GridPane.rowIndex="1" />
+                     <TextField fx:id="txtNumero" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+         
+                     <Label text="Complemento" GridPane.rowIndex="2" />
+                     <TextField fx:id="txtComplemento" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+         
+                     <Label text="Bairro" GridPane.rowIndex="3" />
+                     <TextField fx:id="txtBairro" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+         
+                     <Label text="Cidade" GridPane.rowIndex="4" />
+                     <TextField fx:id="txtCidade" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+         
+                     <Label text="Estado" GridPane.rowIndex="5" />
+                     <TextField fx:id="txtEstado" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+         
+                     <Label text="CEP" GridPane.rowIndex="6" />
+                     <TextField fx:id="txtCep" GridPane.columnIndex="1" GridPane.rowIndex="6" />
+                 </children>
+               <columnConstraints>
+                  <ColumnConstraints />
+                  <ColumnConstraints />
+               </columnConstraints>
+               <rowConstraints>
+                  <RowConstraints />
+                  <RowConstraints />
+                  <RowConstraints />
+                  <RowConstraints />
+                  <RowConstraints />
+                  <RowConstraints />
+                  <RowConstraints />
+               </rowConstraints>
+              </GridPane>
+      </content>
+       </TitledPane>
+   
+       <HBox spacing="10">
+      <children>
+              <Button onAction="#salvarFuncionario" text="Salvar" textFill="#f80303" />
+              <Button onAction="#removerFuncionario" text="Remover Selecionado" textFill="#f80303" />
+      </children>
+       </HBox>
+   
+       <Label text="Funcionários Cadastrados:" textFill="#f80303">
+         <VBox.margin>
+            <Insets left="300.0" />
+         </VBox.margin>
+      </Label>
+       <ListView fx:id="listFuncionarios" prefHeight="150" />
+   
+       <Separator />
+   
+       <Label style="-fx-font-weight: bold;" text="🔍 Filtros de Relatório:" textFill="#f80303" />
+   
+       <HBox spacing="10">
+      <children>
+              <ComboBox fx:id="cbFiltroCargo" promptText="Filtrar por cargo" />
+              <Button onAction="#aplicarFiltroCargo" text="Filtrar" textFill="#f80303" />
+      
+              <TextField fx:id="txtFiltroCidadeEstado" promptText="Filtrar por cidade ou estado" />
+              <Button onAction="#aplicarFiltroLocal" text="Filtrar" textFill="#f80303" />
+      
+              <TextField fx:id="txtMinSalario" promptText="Salário mínimo" />
+              <TextField fx:id="txtMaxSalario" promptText="Salário máximo" />
+              <Button onAction="#aplicarFiltroSalario" text="Filtrar" textFill="#f80303" />
+      </children>
+       </HBox>
+   
+       <TableView fx:id="tabelaFiltrados" prefHeight="200">
+           <columns>
+               <TableColumn fx:id="colNome" text="Nome" />
+               <TableColumn fx:id="colCargo" text="Cargo" />
+               <TableColumn fx:id="colSalario" text="Salário" />
+               <TableColumn fx:id="colCidade" text="Cidade" />
+               <TableColumn fx:id="colEstado" text="Estado" />
+           </columns>
+       </TableView>
+   </children>
+
+</VBox>

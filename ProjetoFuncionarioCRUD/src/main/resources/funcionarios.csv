@@ -1,0 +1,4 @@
+Matricula;Nome;CPF;DataNascimento;Cargo;Salario;DataContratacao;Logradouro;Numero;Complemento;Bairro;Cidade;Estado;CEP
+1234566;bruno;02918743124;2025-04-02;vendedor;1000;2025-04-01;rua 12;1;casa;uirapuru;goiania;goiasa;74510010
+254136;joao;70197928129;2025-04-25;gerente;2000;2025-01-16;rua b;10;casa b;campinas;ánapolis;goias;74953470
+526985;tiaho;12345678998;2025-01-24;gerente;4000;2023-09-15;rua c;150;casa c;centro;canedo;goias;75250000
